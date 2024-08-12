@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Fira+Code:wght@300..700&family=Platypi:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Edu+VIC+WA+NT+Beginner", sans-serif;
+
+}
+
+.Formulario{
+    background: white (255, 255, 255);
+    max-width: 350px;
+    min-height: 40vh;
+    padding: 2rem;
+    box-shadow: 5px 5px 15px #000ff0;
+    border-radius: 8px; 
+}
+
+body {
+    /* background-image: url('./fundo.png'); */
+    background: linear-gradient(45deg,#5afdfd, #f37cf3);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-height: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-image {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+}
