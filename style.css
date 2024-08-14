@@ -20,7 +20,7 @@
 
 body {
     /* background-image: url('./imagebg.png'); */
-    background: linear-gradient(45deg,#5afdfd, #f37cf3);
+    background: linear-gradient(45deg,#e0e7b5, #f37cf3);
     min-height: 100vh;
     min-height: 100vh;
     display:flex;

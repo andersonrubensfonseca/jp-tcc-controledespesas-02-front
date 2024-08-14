@@ -12,38 +12,53 @@
         <div class="resume">
             <div>
                 Entradas: R$
-                <span class="incomes">0,00</span>
+                <span id="incomes" class="incomes">0,00</span>
             </div>
             <div>
                 Saidas: R$
-                <span class="expenses">0,00</span>
+                <span id="expenses" class="expenses">0,00</span>
             </div>
             <div>
                 Total: R$
-                <span class="Total">0,00</span>
+                <span id="total" class="Total">0,00</span>
              </div>
         </div>
-        <div class="newItem">
-            <div class="divDesc">
-                <label for="desc">Descrição</label>
-                <input type="text" id="desc" />
+        <form method="post" onsubmit="return incluir(event)">
+            <div class="newItem">
+                <div class="divDesc">
+                    <label for="desc">Descrição</label>
+                    <input type="text" id="desc" />
+                </div>
+                <div class="divAmount">
+                    <label for="amount">Valor</label>
+                    <input type="number" id="amount" required/>
+                </div>
+                <div class="divType">
+                    <label for="type">Tipo</label>
+                    <select id="type" required>
+                        <option value="">Selecione</option>
+                        <option value="entrada">Entrada</option>
+                        <option value="saida">Saída</option>
+                    </select>
+                </div>
+                <button id="botonNew" type="submit" >Incluir</button>
             </div>
-            <div class="divAmount">
-                <label for="amount">Valor</label>
-                <input type="number" id="amount" />
-            </div>
-            <div class="divType">
-                <label for="type">Tipo</label>
-                <select id="type">
-                    <option>Entrada</option>
-                    <option>Saída</option>
-                </select>
-            </div>
-            <button id="botonNew">Incluir</button>
-        </div>
-
+        </form>
+        <div class="divTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th class="columnAmount">Valor</th>
+                        <th class="columnType">Tipo</th>
+                        <th class="columnAction"></th>
+                    </tr>
+                </thead>
+                <tbody id="bodytable">
+                </tbody>
+            </table>
         </div>
     </main>
-       
+       <script src="./script.js"></script>
 </body>
 </html>
