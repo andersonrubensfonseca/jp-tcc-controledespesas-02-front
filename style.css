@@ -11,10 +11,11 @@
 
 .Formulario{
     background: rgb(168, 230, 235);
+    border: 1px solid rgb(0, 133, 143);
     max-width: 300x; /* Define uma largura máxima para o formulário */
     min-height: 40vh;
     padding: 2rem;
-    box-shadow: 5px 5px 15px #6c75eb;
+    box-shadow: 3px 3px 10px #6c75eb;
     border-radius: 8px;
 }
 
@@ -44,4 +45,12 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     height: 100%;
+}
+
+#usuario {
+    border: 1px solid rgb(0, 225, 241);
+}
+
+#senha {
+    border: 1px solid rgb(0, 225, 241);
 }
