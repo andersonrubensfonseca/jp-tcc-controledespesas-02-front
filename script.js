@@ -27,9 +27,9 @@ function incluir(event){
         transactions = JSON.parse(transactionsStore)
     }
 
-    row.innerHTML = `<td>${descricaoValor}</td>
-                    <td>${valorNumber.toFixed(2).replace('.',',')}</td>
-                    <td>${tipo.value==='entrada'?'Entrada':'Saída'}</td>
+    row.innerHTML = `<td class='direita'>${descricaoValor}</td>
+                    <td class='esquerda'>${valorNumber.toFixed(2).replace('.',',')}</td>
+                    <td class='esquerda'>${tipo.value==='entrada'?'Entrada':'Saída'}</td>
                     <td></td>`
     let linha = {
         descricao:descricaoValor,
@@ -61,9 +61,9 @@ function alimentapagina(){
         let transactions = JSON.parse(transactionsStore)
         transactions.forEach(transaction => {
             const row = document.createElement('tr');
-            row.innerHTML = `<td>${transaction.descricao}</td>
-                    <td>${transaction.valor.toFixed(2).replace('.',',')}</td>
-                    <td>${transaction.tipo==='entrada'?'Entrada':'Saída'}</td>
+            row.innerHTML = `<td class='direita'>${transaction.descricao}</td>
+                    <td class='esquerda'>${transaction.valor.toFixed(2).replace('.',',')}</td>
+                    <td class='esquerda'>${transaction.tipo==='entrada'?'Entrada':'Saída'}</td>
                     <td></td>`
             bodyTable.appendChild(row)
             if(transaction.tipo==='entrada'){

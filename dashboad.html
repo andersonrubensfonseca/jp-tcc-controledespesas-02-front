@@ -8,7 +8,21 @@
 
 </head>
 <body>
+    <!-- Barra Lateral -->
+    <div class="sidebar">
+        <h2>Controle de Despenças</h2>
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./estatiticas.html">Estatísticas</a>
+        <a href="./relatorios.html">Relatórios</a>
+        <a href="./configuracoes.html">Configurações</a>
+        <a href="#" onclick="sair()">Sair</a>
+    </div>
     <main>
+        <!-- Área de Conteúdo Principal -->
+    <div class="main-content">
+        <div class="header">
+            <h1>Bem-vindo(a)</h1>
+        </div>
         <div class="resume">
             <div class="entradas"> 
                 Entradas: R$
@@ -22,8 +36,9 @@
                 Total: R$
                 <span id="total" class="Total">0,00</span>
              </div>
-        </div>
-        <form method="post" onsubmit="return incluir(event)">
+        </div> 
+        <div class="login-container">
+        <form id="formulario" method="post" onsubmit="return incluir(event)">
             <div class="newItem">
                 <div class="divDesc">
                     <label for="desc">Descrição</label>
@@ -43,6 +58,7 @@
                 </div>
                 <button id="botonNew" type="submit" >Incluir</button>
             </div>
+        </div>
         </form>
         <div class="divTable">
             <table>
