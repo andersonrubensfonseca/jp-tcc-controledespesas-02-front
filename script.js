@@ -1,3 +1,42 @@
+const pagina = window.location.pathname
+const locais = pagina.split('/')
+
+async function login(event){
+    event.preventDefault();
+    const form = document.getElementById('meuFormulario');
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+
+    // try {
+    //     const response = await fetch('https://api.example.com/endpoint', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify(data),
+    //     });
+
+    //     const result = await response.json();
+    //     console.log('Resposta da API:', result);
+
+    // } catch (error) {
+    //     console.error('Erro ao fazer a chamada API:', error);
+    // }
+    
+    return false;
+}
+
+    // if(data.username.trim() === 'Linda' && data.password.trim() === '291122'){
+    //     localStorage.setItem('credenciais', JSON.stringify(data))
+    //     window.location="dashboad.html"
+    // }else{
+    //     alert('Credenciais inválidas!')
+    //     form.reset();
+    // }
+
 function incluir(event){
     event.preventDefault();
     let entradas = document.getElementById('incomes')
@@ -79,4 +118,21 @@ function alimentapagina(){
     }
 }
 
-alimentapagina()
+if(locais[locais.length-1]==='relatorios.html'){
+    function alimentapagina2(){
+        let transactionsStore = localStorage.getItem('transactions');
+        let bodyTable = document.getElementById('bodytable')
+        console.log(bodyTable)
+            let transactions = JSON.parse(transactionsStore)
+            transactions.forEach(transaction => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td class='direita'>${transaction.descricao}</td>
+                        <td class='esquerda'>${transaction.valor.toFixed(2).replace('.',',')}</td>
+                        <td class='esquerda'>${transaction.tipo==='entrada'?'Entrada':'Saída'}</td>
+                        <td></td>`
+                bodyTable.appendChild(row)
+    });
+    }
+    
+    alimentapagina2()
+}
