@@ -65,15 +65,17 @@ function incluir(event){
     if(transactionsStore){
         transactions = JSON.parse(transactionsStore)
     }
-
+    let hoje = new Date()
+    hoje = hoje.getDate()+"/"+(hoje.getMonth()+1)+"/"+hoje.getFullYear();
     row.innerHTML = `<td class='direita'>${descricaoValor}</td>
+                    <td class='columnType'>${tipo.value==='entrada'?'Entrada':'Saída'}</td>                    
                     <td class='esquerda'>${valorNumber.toFixed(2).replace('.',',')}</td>
-                    <td class='esquerda'>${tipo.value==='entrada'?'Entrada':'Saída'}</td>
                     <td></td>`
     let linha = {
         descricao:descricaoValor,
-        valor:valorNumber,
-        tipo:tipo.value
+        tipo:tipo.value,
+        data: hoje,
+        valor:valorNumber
     }
     transactions.push(linha)
     bodyTable.appendChild(row)
@@ -101,8 +103,8 @@ function alimentapagina(){
         transactions.forEach(transaction => {
             const row = document.createElement('tr');
             row.innerHTML = `<td class='direita'>${transaction.descricao}</td>
+                    <td class='columnType'>${transaction.tipo==='entrada'?'Entrada':'Saída'}</td>                    
                     <td class='esquerda'>${transaction.valor.toFixed(2).replace('.',',')}</td>
-                    <td class='esquerda'>${transaction.tipo==='entrada'?'Entrada':'Saída'}</td>
                     <td></td>`
             bodyTable.appendChild(row)
             if(transaction.tipo==='entrada'){
@@ -127,8 +129,9 @@ if(locais[locais.length-1]==='relatorios.html'){
             transactions.forEach(transaction => {
                 const row = document.createElement('tr');
                 row.innerHTML = `<td class='direita'>${transaction.descricao}</td>
-                        <td class='esquerda'>${transaction.valor.toFixed(2).replace('.',',')}</td>
                         <td class='esquerda'>${transaction.tipo==='entrada'?'Entrada':'Saída'}</td>
+                        <td class='esquerda'>${transaction.valor.toFixed(2).replace('.',',')}</td>
+                        <td style="text-align:center">${transaction.data?transaction.data:'-'}</td>
                         <td></td>`
                 bodyTable.appendChild(row)
     });

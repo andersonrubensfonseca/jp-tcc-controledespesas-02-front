@@ -185,3 +185,11 @@ desc {
     cursor: pointer;
     height: 34px;
 }
+
+.localDate{
+    text-align: center;
+}
+
+.columnType{
+    text-align: center;
+}
