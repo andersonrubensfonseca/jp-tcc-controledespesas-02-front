@@ -3,25 +3,25 @@
 * {
     margin: 0;
     border: 0;
-    padding: 10px;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Edu+VIC+WA+NT+Beginner', sans-serif;
 
 }
 
 .Formulario{
-    background: rgb(168, 230, 235);
-    border: 1px solid rgb(0, 133, 143);
-    max-width: 300x; /* Define uma largura máxima para o formulário */
+    background: rgb(168, 235, 218);
+    border: 1px solid rgb(0, 143, 100);
+    max-width: 450px; /* Define uma largura máxima para o formulário */
     min-height: 40vh;
     padding: 2rem;
-    box-shadow: 3px 3px 10px #6c75eb;
+    box-shadow: 3px 3px 15px #6c94eb;
     border-radius: 8px;
 }
 
 body {
     /* background-image: url('./imagebg.png'); */
-    background: linear-gradient(45deg,#e0e7b5, #f37cf3);
+    background: linear-gradient(45deg,#e7d1b5, #c37cf3);
     min-height: 100vh;
     min-height: 100vh;
     display:flex;
@@ -47,14 +47,25 @@ body {
     height: 100%;
 }
 
-#usuario {
-    border: 1px solid rgb(0, 225, 241);
+#labelNome, #labelsenha, #labelconfirmSenha {
+    padding: auto;
+    border: 0;
 }
 
-#senha {
-    border: 1px solid rgb(0, 225, 241);
-}
-
-#senha {
-    border: 1px solid rgb(0, 225, 241);
-}
+#msgError{
+    text-align: center;
+    color: #ff0000;
+    background-color: #ffbbbb;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+  }
+  
+  #msgSuccess{
+    text-align: center;
+    color: #00bb00;
+    background-color: #bbffbe;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+  }

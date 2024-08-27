@@ -17,20 +17,21 @@
                         <fieldset >
                             <legend>Cadastrar</legend>
                             <div class="mb-3">
-                                <label for="usuario" class="form-label">Nome</label>
+                                <label id= "labelNome" for="usuario" class="form-label">Nome</label>
                                 <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Digite seu nome">
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Senha</label>
+                                <label id= "labelsenha" for="password" class="form-label">Senha</label>
                                 <input type="password" id="senha" name="senha" class="form-control" placeholder="Digite sua senha">                       
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Confirmar Senha</label>
+                                <label id="labelconfirmSenha" for="password" class="form-label">Confirmar Senha</label>
                                 <input type="password" id="confirmSenha" name="senha" class="form-control" placeholder="Digite novamente sua senha">                       
-                            </div>                    
-                            <button type="submit" class="btn btn-primary">Cadastrar</button>
-                            <div>
-                        </fieldset>  
+                            </div>
+                            
+                            <div class="justify-center">
+                                <button onclick="cadastrar()">Cadastrar</button>
+                            </div>
                     </form>
                 </div>
             </div>

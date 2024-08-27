@@ -1,41 +1,114 @@
 const pagina = window.location.pathname
 const locais = pagina.split('/')
 
-async function login(event){
-    event.preventDefault();
-    const form = document.getElementById('meuFormulario');
-    const formData = new FormData(form);
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
+let nome = document.querySelector('#nome')
+let labelNome = document.querySelector('#labelNome')
+let validNome = false
 
-    // try {
-    //     const response = await fetch('https://api.example.com/endpoint', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify(data),
-    //     });
+let senha = document.querySelector('#senha')
+let labelSenha = document.querySelector('#labelSenha')
+let validSenha = false
 
-    //     const result = await response.json();
-    //     console.log('Resposta da API:', result);
+let confirmSenha = document.querySelector('#confirmSenha')
+let labelConfirmSenha = document.querySelector('#labelConfirmSenha')
+let validConfirmSenha = false
 
-    // } catch (error) {
-    //     console.error('Erro ao fazer a chamada API:', error);
-    // }
+let msgError = document.querySelector('#msgError')
+let msgSuccess = document.querySelector('#msgSuccess')
+
+nome.addEventListener('keyup', () => {
+  if(nome.value.length <= 2){
+    labelNome.setAttribute('style', 'color: red')
+    labelNome.innerHTML = 'Nome *Insira no minimo 3 caracteres'
+    nome.setAttribute('style', 'border-color: red')
+    validNome = false
+  } else {
+    labelNome.setAttribute('style', 'color: green')
+    labelNome.innerHTML = 'Nome'
+    nome.setAttribute('style', 'border-color: green')
+    validNome = true
+  }
+})
+
+senha.addEventListener('keyup', () => {
+  if(senha.value.length <= 5){
+    labelSenha.setAttribute('style', 'color: red')
+    labelSenha.innerHTML = 'Senha *Insira no minimo 6 caracteres'
+    senha.setAttribute('style', 'border-color: red')
+    validSenha = false
+  } else {
+    labelSenha.setAttribute('style', 'color: green')
+    labelSenha.innerHTML = 'Senha'
+    senha.setAttribute('style', 'border-color: green')
+    validSenha = true
+  }
+})
+
+confirmSenha.addEventListener('keyup', () => {
+  if(senha.value != confirmSenha.value){
+    labelConfirmSenha.setAttribute('style', 'color: red')
+    labelConfirmSenha.innerHTML = 'Confirmar Senha *As senhas não conferem'
+    confirmSenha.setAttribute('style', 'border-color: red')
+    validConfirmSenha = false
+  } else {
+    labelConfirmSenha.setAttribute('style', 'color: green')
+    labelConfirmSenha.innerHTML = 'Confirmar Senha'
+    confirmSenha.setAttribute('style', 'border-color: green')
+    validConfirmSenha = true
+  }
+})
+
+function cadastrar(){
+  if(validNome && validSenha && validConfirmSenha){
+    let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
     
-    return false;
+    listaUser.push(
+    {
+      nomeCad: nome.value,
+      senhaCad: senha.value
+    }
+    )
+    
+    localStorage.setItem('listaUser', JSON.stringify(listaUser))
+    
+   
+    msgSuccess.setAttribute('style', 'display: block')
+    msgSuccess.innerHTML = '<strong>Cadastrando usuário...</strong>'
+    msgError.setAttribute('style', 'display: none')
+    msgError.innerHTML = ''
+    
+    setTimeout(()=>{
+        window.location.href = 'file:///C:/Users/usuario/Documents/jp-tcc-controledespesas-03-front/index.html'
+    }, 3000)
+  
+    
+  } else {
+    msgError.setAttribute('style', 'display: block')
+    msgError.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar</strong>'
+    msgSuccess.innerHTML = ''
+    msgSuccess.setAttribute('style', 'display: none')
+  }
 }
 
-    // if(data.username.trim() === 'Linda' && data.password.trim() === '291122'){
-    //     localStorage.setItem('credenciais', JSON.stringify(data))
-    //     window.location="dashboad.html"
-    // }else{
-    //     alert('Credenciais inválidas!')
-    //     form.reset();
-    // }
+btn.addEventListener('click', ()=>{
+  let inputSenha = document.querySelector('#senha')
+  
+  if(inputSenha.getAttribute('type') == 'password'){
+    inputSenha.setAttribute('type', 'text')
+  } else {
+    inputSenha.setAttribute('type', 'password')
+  }
+})
+
+btnConfirm.addEventListener('click', ()=>{
+  let inputConfirmSenha = document.querySelector('#confirmSenha')
+  
+  if(inputConfirmSenha.getAttribute('type') == 'password'){
+    inputConfirmSenha.setAttribute('type', 'text')
+  } else {
+    inputConfirmSenha.setAttribute('type', 'password')
+  }
+})
 
 function incluir(event){
     event.preventDefault();
