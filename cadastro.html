@@ -13,26 +13,33 @@
         <div id="imagemf">
             <div class="Container">
                 <div class="Formulario">
+                    <div class='card'>
+                        <h1> Cadastrar </h1>
+                        
+                        <div id='msgError'></div>
+                        <div id='msgSuccess'></div>
                     <form id="meuCadastro" method="post" onsubmit="return login(event)">
                         <fieldset >
                             <legend>Cadastrar</legend>
                             <div class="mb-3">
-                                <label id= "labelNome" for="usuario" class="form-label">Nome</label>
-                                <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Digite seu nome">
+                                <label id= "labelNome" for="nome" class="form-label">Nome</label>
+                                <input type="text" id="nome" name="nome" class="form-control" placeholder=" " required>
                             </div>
                             <div class="mb-3">
-                                <label id= "labelsenha" for="password" class="form-label">Senha</label>
-                                <input type="password" id="senha" name="senha" class="form-control" placeholder="Digite sua senha">                       
+                                <label id= "labelSenha" for="senha" class="form-label">Senha</label>
+                                <input type="password" id="senha" name="senha" class="form-control" placeholder=" " required>                       
                             </div>
                             <div class="mb-3">
-                                <label id="labelconfirmSenha" for="password" class="form-label">Confirmar Senha</label>
-                                <input type="password" id="confirmSenha" name="senha" class="form-control" placeholder="Digite novamente sua senha">                       
+                                <label id="labelConfirmSenha" for="confirmSenha" class="form-label">Confirmar Senha</label>
+                                <input type="password" id="confirmSenha" name="confirmSenha" class="form-control" placeholder=" " required>                       
                             </div>
                             
-                            <div class="justify-center">
-                                <button onclick="cadastrar()">Cadastrar</button>
-                            </div>
+                            <div class='justify-center'>
+                                <button onclick='cadastrar()'>Cadastrar</button>
+                             </div>
+                        </fieldset>
                     </form>
+                    </div>
                 </div>
             </div>
 

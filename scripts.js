@@ -1,6 +1,3 @@
-const pagina = window.location.pathname
-const locais = pagina.split('/')
-
 let nome = document.querySelector('#nome')
 let labelNome = document.querySelector('#labelNome')
 let validNome = false
@@ -16,7 +13,8 @@ let validConfirmSenha = false
 let msgError = document.querySelector('#msgError')
 let msgSuccess = document.querySelector('#msgSuccess')
 
-nome.addEventListener('keyup', () => {
+window.onload= function (){
+  nome.addEventListener('keyup', () => {
   if(nome.value.length <= 2){
     labelNome.setAttribute('style', 'color: red')
     labelNome.innerHTML = 'Nome *Insira no minimo 3 caracteres'
@@ -79,7 +77,7 @@ function cadastrar(){
     
     setTimeout(()=>{
         window.location.href = 'file:///C:/Users/usuario/Documents/jp-tcc-controledespesas-03-front/index.html'
-    }, 3000)
+    }, 5000)
   
     
   } else {
@@ -98,6 +96,7 @@ btn.addEventListener('click', ()=>{
   } else {
     inputSenha.setAttribute('type', 'password')
   }
+
 })
 
 btnConfirm.addEventListener('click', ()=>{
@@ -109,6 +108,11 @@ btnConfirm.addEventListener('click', ()=>{
     inputConfirmSenha.setAttribute('type', 'password')
   }
 })
+}
+
+
+const pagina = window.location.pathname
+const locais = pagina.split('/')
 
 function incluir(event){
     event.preventDefault();
