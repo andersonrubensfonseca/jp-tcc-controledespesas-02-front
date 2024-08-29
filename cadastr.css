@@ -9,15 +9,14 @@
 
 }
 
-.Formulario{
-    background: rgb(168, 235, 218);
+.card {
+    background-color: rgb(168, 235, 218);
     border: 1px solid rgb(0, 143, 100);
-    max-width: 450px; /* Define uma largura máxima para o formulário */
-    min-height: 40vh;
-    padding: 2rem;
-    box-shadow: 3px 3px 15px #6c94eb;
+    padding: 30px;
     border-radius: 8px;
-}
+    box-shadow: 3px 3px 1px 0px #6c94eb;
+    width: 400px;
+  }
 
 body {
     /* background-image: url('./imagebg.png'); */

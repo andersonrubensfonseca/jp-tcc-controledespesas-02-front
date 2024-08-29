@@ -10,13 +10,12 @@
 }
 
 .Formulario{
-    background: rgb(168, 230, 235);
-    border: 1px solid rgb(0, 133, 143);
-    max-width: 300x; /* Define uma largura máxima para o formulário */
-    min-height: 40vh;
-    padding: 2rem;
-    box-shadow: 3px 3px 10px #6c75eb;
+    background-color: rgb(168, 235, 218);
+    border: 1px solid rgb(0, 143, 100);
+    padding: 30px;
     border-radius: 8px;
+    box-shadow: 3px 3px 1px 0px #6c94eb;
+    width: 400px;
 }
 
 body {
@@ -54,3 +53,20 @@ body {
 #senha {
     border: 1px solid rgb(0, 225, 241);
 }
+
+#msgError{
+    text-align: center;
+    color: #ff0000;
+    background-color: #ffbbbb;
+    padding: 10px;
+    border-radius: 4px;
+    display: none;
+  }
+
+/*background: rgb(168, 230, 235);
+    border: 1px solid rgb(0, 133, 143);
+    max-width: 300x; /* Define uma largura máxima para o formulário
+    min-height: 40vh;
+    padding: 2rem;
+    box-shadow: 3px 3px 10px #6c75eb;
+    border-radius: 8px;

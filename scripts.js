@@ -13,50 +13,53 @@ let validConfirmSenha = false
 let msgError = document.querySelector('#msgError')
 let msgSuccess = document.querySelector('#msgSuccess')
 
-window.onload= function (){
+if(window.location.href.includes('cadastro.html')){
   nome.addEventListener('keyup', () => {
-  if(nome.value.length <= 2){
-    labelNome.setAttribute('style', 'color: red')
-    labelNome.innerHTML = 'Nome *Insira no minimo 3 caracteres'
-    nome.setAttribute('style', 'border-color: red')
-    validNome = false
-  } else {
-    labelNome.setAttribute('style', 'color: green')
-    labelNome.innerHTML = 'Nome'
-    nome.setAttribute('style', 'border-color: green')
-    validNome = true
-  }
-})
+    if(nome.value.length <= 2){
+      labelNome.setAttribute('style', 'color: red')
+      labelNome.innerHTML = 'Nome *Insira no minimo 3 caracteres'
+      nome.setAttribute('style', 'border-color: red')
+      validNome = false
+    } else {
+      labelNome.setAttribute('style', 'color: green')
+      labelNome.innerHTML = 'Nome'
+      nome.setAttribute('style', 'border-color: green')
+      validNome = true
+    }
+  })
+}
 
-senha.addEventListener('keyup', () => {
-  if(senha.value.length <= 5){
-    labelSenha.setAttribute('style', 'color: red')
-    labelSenha.innerHTML = 'Senha *Insira no minimo 6 caracteres'
-    senha.setAttribute('style', 'border-color: red')
-    validSenha = false
-  } else {
-    labelSenha.setAttribute('style', 'color: green')
-    labelSenha.innerHTML = 'Senha'
-    senha.setAttribute('style', 'border-color: green')
-    validSenha = true
-  }
-})
 
-confirmSenha.addEventListener('keyup', () => {
-  if(senha.value != confirmSenha.value){
-    labelConfirmSenha.setAttribute('style', 'color: red')
-    labelConfirmSenha.innerHTML = 'Confirmar Senha *As senhas não conferem'
-    confirmSenha.setAttribute('style', 'border-color: red')
-    validConfirmSenha = false
-  } else {
-    labelConfirmSenha.setAttribute('style', 'color: green')
-    labelConfirmSenha.innerHTML = 'Confirmar Senha'
-    confirmSenha.setAttribute('style', 'border-color: green')
-    validConfirmSenha = true
-  }
-})
-
-function cadastrar(){
+if(window.location.href.includes('cadastro.html')){
+  senha.addEventListener('keyup', () => {
+    if(senha.value.length <= 5){
+      labelSenha.setAttribute('style', 'color: red')
+      labelSenha.innerHTML = 'Senha *Insira no minimo 6 caracteres'
+      senha.setAttribute('style', 'border-color: red')
+      validSenha = false
+    } else {
+      labelSenha.setAttribute('style', 'color: green')
+      labelSenha.innerHTML = 'Senha'
+      senha.setAttribute('style', 'border-color: green')
+      validSenha = true
+    }
+  })
+  confirmSenha.addEventListener('keyup', () => {
+    if(senha.value != confirmSenha.value){
+      labelConfirmSenha.setAttribute('style', 'color: red')
+      labelConfirmSenha.innerHTML = 'Confirmar Senha *As senhas não conferem'
+      confirmSenha.setAttribute('style', 'border-color: red')
+      validConfirmSenha = false
+    } else {
+      labelConfirmSenha.setAttribute('style', 'color: green')
+      labelConfirmSenha.innerHTML = 'Confirmar Senha'
+      confirmSenha.setAttribute('style', 'border-color: green')
+      validConfirmSenha = true
+    }
+  })
+}
+function cadastrar(event){
+  event.preventDefault();
   if(validNome && validSenha && validConfirmSenha){
     let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
     
@@ -76,8 +79,8 @@ function cadastrar(){
     msgError.innerHTML = ''
     
     setTimeout(()=>{
-        window.location.href = 'file:///C:/Users/usuario/Documents/jp-tcc-controledespesas-03-front/index.html'
-    }, 5000)
+        window.location = './index.html'
+    }, 1000)
   
     
   } else {
@@ -86,30 +89,78 @@ function cadastrar(){
     msgSuccess.innerHTML = ''
     msgSuccess.setAttribute('style', 'display: none')
   }
+  return false;
 }
 
-btn.addEventListener('click', ()=>{
-  let inputSenha = document.querySelector('#senha')
-  
-  if(inputSenha.getAttribute('type') == 'password'){
-    inputSenha.setAttribute('type', 'text')
-  } else {
-    inputSenha.setAttribute('type', 'password')
-  }
+if(window.location.href.includes('cadastro.html')){
+  btn.addEventListener('click', ()=>{
+    let inputSenha = document.querySelector('#senha')
+    
+    if(inputSenha.getAttribute('type') == 'password'){
+      inputSenha.setAttribute('type', 'text')
+    } else {
+      inputSenha.setAttribute('type', 'password')
+    }
 
-})
-
-btnConfirm.addEventListener('click', ()=>{
-  let inputConfirmSenha = document.querySelector('#confirmSenha')
-  
-  if(inputConfirmSenha.getAttribute('type') == 'password'){
-    inputConfirmSenha.setAttribute('type', 'text')
-  } else {
-    inputConfirmSenha.setAttribute('type', 'password')
-  }
-})
+  })
+  btnConfirm.addEventListener('click', ()=>{
+    let inputConfirmSenha = document.querySelector('#confirmSenha')
+    
+    if(inputConfirmSenha.getAttribute('type') == 'password'){
+      inputConfirmSenha.setAttribute('type', 'text')
+    } else {
+      inputConfirmSenha.setAttribute('type', 'password')
+    }
+  })
 }
 
+function entrar( event){
+  event.preventDefault();
+  let usuario = document.querySelector('#usuario')
+  let userLabel = document.querySelector('#userLabel')
+  
+  let senha = document.querySelector('#senha')
+  let senhaLabel = document.querySelector('#senhaLabel')
+  
+  let msgError = document.querySelector('#msgError')
+  let listaUser = []
+  
+  let userValid = {
+    nome: '',
+    user: '',
+    senha: ''
+  }
+  
+  listaUser = JSON.parse(localStorage.getItem('listaUser'))
+  listaUser.forEach((item) => {
+    if(usuario.value == item.nomeCad && senha.value == item.senhaCad){
+      userValid = {
+         nome: item.nomeCad,
+         user: item.userCad,
+         senha: item.senhaCad
+       }
+      
+    }
+  })
+  if(usuario.value == userValid.nome && senha.value == userValid.senha){
+    window.location = './dashboad.html'
+    
+    let mathRandom = Math.random().toString(16).substr(2)
+    let token = mathRandom + mathRandom
+    
+    localStorage.setItem('token', token)
+    localStorage.setItem('userLogado', JSON.stringify(userValid))
+  } else {
+    userLabel.setAttribute('style', 'color: red')
+    usuario.setAttribute('style', 'border-color: red')
+    senhaLabel.setAttribute('style', 'color: red')
+    senha.setAttribute('style', 'border-color: red')
+    msgError.setAttribute('style', 'display: block')
+    msgError.innerHTML = 'Usuário ou senha incorretos'
+    usuario.focus()
+  }
+  return false
+}
 
 const pagina = window.location.pathname
 const locais = pagina.split('/')
@@ -215,4 +266,10 @@ if(locais[locais.length-1]==='relatorios.html'){
     }
     
     alimentapagina2()
+}
+
+function sair(){
+  localStorage.removeItem('userLogado')
+  localStorage.removeItem('token')
+  window.location="./index.html"
 }

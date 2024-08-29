@@ -13,16 +13,17 @@
         <div id="imagemf">
             <div class="Container">
                 <div class="Formulario">
-                    <form id="meuFormulario" method="post" onsubmit="return login(event)">
+                    <form id="meuFormulario" method="post" onsubmit="return entrar(event)">
                         <fieldset >
                             <legend>Login</legend>
+                            <div id='msgError'></div>
                             <div class="mb-3">
-                                <label id= "labelUsuario" for="usuario" class="form-label">Usuário</label>
-                                <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Digite seu nome">
+                                <label id= "userLabel" for="usuario" class="form-label">Usuário</label>
+                                <input type="text" id="usuario" name="usuario" class="form-control" placeholder=" " required>
                             </div>
                             <div class="mb-3">
-                                <label id= "labelsenha" for="senha" class="form-label">Password</label>
-                                <input type="password" id="senha" name="senha" class="form-control" placeholder="Digite sua senha">                       
+                                <label id= "senhaLabel" for="senha" class="form-label">Password</label>
+                                <input type="password" id="senha" name="senha" class="form-control" placeholder=" " required>                       
                             </div>                        
                             <button type="submit" class="btn btn-primary">Entrar</button>
                             <div>

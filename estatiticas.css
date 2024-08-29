@@ -1,0 +1,111 @@
+* {
+    margin: 8px;
+    font-family: "Arial", sans-serif;
+
+}
+
+.sidebar {
+    width: 350px;
+    background-color: #bcdaf8;
+    color: #000000;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    margin: 0;
+}
+
+.sidebar h2 {
+    margin-top: 3vh;
+}
+.sidebar a {
+    color: #000000;
+    display: block;
+    padding: 20px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    top: 5px;
+    text-decoration-line: underline rgb(34, 34, 66);
+}
+.sidebar a:hover {
+    background-color: #dce9f5;
+}
+
+.main-content {
+    margin-left: 460px;
+    padding: 20px;
+    width: 100%;
+    height: 100vh;
+}
+
+h1 {
+    padding: 15vh;
+    padding-left: 10vh;
+}
+
+main {
+    max-width: 550px;
+    width: 100%;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+
+}
+
+body {
+    /* background-image: url('./construcao.png');'); */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(50deg, #f8ffc8, #f1b1f1);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+#imagemf {
+    background-image: url('./contrucao.com.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    width: 350%;
+    padding-left: 10vh;
+}
+
+table {
+    width: 100%;
+}
+
+.divTable {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    padding: 20px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.columnAmount,
+.columnType {
+    text-align: right;
+}
+
+#bodytable {
+    padding: 100%;
+}
+
+.direita {
+    text-align: left;
+}
+
+
+.esquerda {
+    text-align: right;
+}
+
+desc {
+    text-align: right;
+}
