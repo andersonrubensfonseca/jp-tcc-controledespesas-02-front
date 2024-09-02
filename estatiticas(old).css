@@ -40,8 +40,11 @@
 }
 
 h1 {
-    padding: 15vh;
-    padding-left: 10vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    width: 350%;
+    padding-left: 15vh;
 }
 
 main {
